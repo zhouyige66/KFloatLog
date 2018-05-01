@@ -36,23 +36,23 @@ public class LogListAdapter extends CommonAdapter<LogItemBean> {
         int type = bean.getLogLevel();
         switch (type) {
             case 0:
-                tvLog.setTextColor(Color.WHITE);
+                tvTag.setTextColor(Color.WHITE);
                 tvLog.setTextColor(Color.WHITE);
                 break;
             case 1:
-                tvLog.setTextColor(Color.GREEN);
+                tvTag.setTextColor(Color.GREEN);
                 tvLog.setTextColor(Color.GREEN);
                 break;
             case 2:
-                tvLog.setTextColor(Color.BLUE);
+                tvTag.setTextColor(Color.BLUE);
                 tvLog.setTextColor(Color.BLUE);
                 break;
             case 3:
-                tvLog.setTextColor(Color.YELLOW);
+                tvTag.setTextColor(Color.YELLOW);
                 tvLog.setTextColor(Color.YELLOW);
                 break;
             case 4:
-                tvLog.setTextColor(Color.RED);
+                tvTag.setTextColor(Color.RED);
                 tvLog.setTextColor(Color.RED);
                 break;
             default:
