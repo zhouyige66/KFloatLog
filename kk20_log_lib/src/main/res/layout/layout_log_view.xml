@@ -32,21 +32,23 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:singleLine="true"
+            android:textColor="#fff"
             tools:text="Verbose" />
 
         <TextView
             android:id="@+id/tv_tag"
             android:layout_width="wrap_content"
             android:layout_height="32dp"
-            android:maxWidth="100dp"
             android:layout_marginLeft="10dp"
             android:background="@drawable/bg_rectangle_5dp"
             android:drawablePadding="5dp"
             android:drawableRight="@drawable/ic_log_spinner_dropdown"
             android:gravity="center_vertical"
+            android:maxWidth="100dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:singleLine="true"
+            android:textColor="#fff"
             tools:text="标签" />
 
         <EditText

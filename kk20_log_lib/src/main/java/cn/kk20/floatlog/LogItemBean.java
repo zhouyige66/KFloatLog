@@ -33,6 +33,27 @@ public class LogItemBean implements Parcelable {
         return logLevel;
     }
 
+    public String getLogLevelStr() {
+        String s = "V";
+        switch (logLevel) {
+            case 1:
+                s = "D";
+                break;
+            case 2:
+                s = "I";
+                break;
+            case 3:
+                s = "W";
+                break;
+            case 4:
+                s = "E";
+                break;
+            default:
+                break;
+        }
+        return s;
+    }
+
     public void setLogLevel(int logLevel) {
         this.logLevel = logLevel;
     }
