@@ -12,7 +12,7 @@
         android:supportsRtl="true">
 
         <activity
-            android:name=".PermissionGrantActivity"
+            android:name=".AlertWindowPermissionGrantActivity"
             android:launchMode="singleTask"
             android:theme="@style/StyleActivityTransparent" />
         <service android:name="cn.kk20.floatlog.LogService" />

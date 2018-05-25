@@ -28,36 +28,32 @@ public class LogListAdapter extends CommonAdapter<LogItemBean> {
 
     @Override
     protected void convert(ViewHolder viewHolder, LogItemBean bean, int i) {
-        String time = simpleDateFormat.format(bean.getDate());
-        String text = String.format(Locale.CHINA, "[%s %s/%s]:", time, bean.getLogLevelStr(),
-                bean.getLogTag());
         TextView tvTag = viewHolder.getView(R.id.tv_tag);
         TextView tvLog = viewHolder.getView(R.id.tv_log);
         int type = bean.getLogLevel();
         switch (type) {
-            case 0:
-                tvTag.setTextColor(Color.WHITE);
+            case LogItemBean.VERBOSE:
                 tvLog.setTextColor(Color.WHITE);
                 break;
-            case 1:
-                tvTag.setTextColor(Color.GREEN);
+            case LogItemBean.DEBUG:
+                tvLog.setTextColor(Color.parseColor("#fc2c31"));
+                break;
+            case LogItemBean.INFO:
                 tvLog.setTextColor(Color.GREEN);
                 break;
-            case 2:
-                tvTag.setTextColor(Color.BLUE);
-                tvLog.setTextColor(Color.BLUE);
+            case LogItemBean.WARN:
+                tvLog.setTextColor(Color.parseColor("#ef5b25"));
                 break;
-            case 3:
-                tvTag.setTextColor(Color.YELLOW);
-                tvLog.setTextColor(Color.YELLOW);
-                break;
-            case 4:
-                tvTag.setTextColor(Color.RED);
+            case LogItemBean.ERROR:
                 tvLog.setTextColor(Color.RED);
                 break;
             default:
                 break;
         }
+
+        String time = simpleDateFormat.format(bean.getDate());
+        String text = String.format(Locale.CHINA, "[%s %s/%s]:", time, bean.getLogLevelStr(),
+                bean.getLogTag());
         tvTag.setText(text);
         tvLog.setText(bean.getLogText());
     }

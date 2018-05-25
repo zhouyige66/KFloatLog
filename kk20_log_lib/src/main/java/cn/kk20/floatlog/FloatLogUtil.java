@@ -33,15 +33,15 @@ public class FloatLogUtil {
 
         Context context = getAppContext();
         if (!AppOpsManagerUtil.checkDrawOverlays(context)) {
-            Intent i = new Intent(context, PermissionGrantActivity.class);
+            Intent i = new Intent(context, AlertWindowPermissionGrantActivity.class);
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             getAppContext().startActivity(i);
-        } else {
-            LogItemBean bean = new LogItemBean(level, tag, msg);
-            Intent intent = new Intent(context, LogService.class);
-            intent.putExtra("data", bean);
-            context.startService(intent);
+            return;
         }
+        LogItemBean bean = new LogItemBean(level, tag, msg);
+        Intent intent = new Intent(context, LogService.class);
+        intent.putExtra("data", bean);
+        context.startService(intent);
     }
 
     public static void bind(Context context) {

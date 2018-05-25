@@ -21,9 +21,8 @@ import android.view.WindowManager;
  * @Version V1.0.0
  */
 public abstract class AbsFloatView {
-    protected String tag = getClass().getSimpleName();
-
     public View view;
+
     private GestureDetector gestureDetector;
     private Point point;
     private WindowManager.LayoutParams layoutParams;
@@ -60,7 +59,7 @@ public abstract class AbsFloatView {
         }
 
         layoutParams = new WindowManager.LayoutParams();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {//6.0+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {//6.0+
             layoutParams.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
         } else {
             layoutParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;

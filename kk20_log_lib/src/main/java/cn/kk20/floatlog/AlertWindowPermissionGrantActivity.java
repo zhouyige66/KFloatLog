@@ -30,7 +30,7 @@ import java.lang.reflect.Method;
  * @Date 2018/5/1
  * @Version V1.0.0
  */
-public class PermissionGrantActivity extends Activity {
+public class AlertWindowPermissionGrantActivity extends Activity {
     private static final int OVERLAYS_CODE = 10001;
 
     private View viewGrant;
@@ -39,7 +39,7 @@ public class PermissionGrantActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_permission_grant);
+        setContentView(R.layout.activity_alert_window_permission_grant);
 
         viewGrant = findViewById(R.id.view_grant);
         btnGrant = findViewById(R.id.btn_grant);

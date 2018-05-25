@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#50000000"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -9,10 +10,10 @@
         android:id="@+id/view_grant"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="30dp"
         android:layout_margin="20dp"
-        android:background="@drawable/bg_rectangle_5dp"
+        android:background="@drawable/bg_rectangle_ffffff_8dp"
+        android:orientation="vertical"
+        android:padding="20dp"
         android:visibility="visible">
 
         <TextView
@@ -27,8 +28,12 @@
             android:id="@+id/btn_grant"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="12dp"
             android:background="@drawable/selector_rectangle_f47139_5dp"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp"
             android:text="授权"
             android:textColor="#ffffff"
             android:textSize="18sp" />
