@@ -36,13 +36,13 @@ public class LogListAdapter extends CommonAdapter<LogItemBean> {
                 tvLog.setTextColor(Color.WHITE);
                 break;
             case LogItemBean.DEBUG:
-                tvLog.setTextColor(Color.parseColor("#fc2c31"));
+                tvLog.setTextColor(Color.parseColor("#20B2AA"));
                 break;
             case LogItemBean.INFO:
                 tvLog.setTextColor(Color.GREEN);
                 break;
             case LogItemBean.WARN:
-                tvLog.setTextColor(Color.parseColor("#ef5b25"));
+                tvLog.setTextColor(Color.parseColor("#EE7600"));
                 break;
             case LogItemBean.ERROR:
                 tvLog.setTextColor(Color.RED);
