@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FloatLog</string>
+    <string name="msg_permission">悬浮日志监视窗需要对应用授予悬浮窗权限!</string>
+    <string name="btn_permission">确认</string>
 </resources>

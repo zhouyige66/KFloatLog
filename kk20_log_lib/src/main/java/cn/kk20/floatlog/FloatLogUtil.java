@@ -29,8 +29,6 @@ public class FloatLogUtil {
     }
 
     private static void addLog(int level, String tag, String msg) {
-//        Log.i(tag, "instance==" + instance + "，context==" + getAppContext());
-
         Context context = getAppContext();
         if (!AppOpsManagerUtil.checkDrawOverlays(context)) {
             Intent i = new Intent(context, AlertWindowPermissionGrantActivity.class);

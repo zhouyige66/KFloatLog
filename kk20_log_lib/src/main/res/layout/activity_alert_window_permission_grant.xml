@@ -10,7 +10,7 @@
         android:id="@+id/view_grant"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_margin="30dp"
         android:background="@drawable/bg_rectangle_ffffff_8dp"
         android:orientation="vertical"
         android:padding="20dp"
@@ -20,7 +20,7 @@
             android:id="@+id/tv_tip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="悬浮日志监视窗需要对应用授予悬浮窗权限!"
+            android:text="@string/msg_permission"
             android:textColor="#A3221E"
             android:textSize="28sp" />
 
@@ -28,13 +28,13 @@
             android:id="@+id/btn_grant"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="15dp"
             android:background="@drawable/selector_rectangle_f47139_5dp"
             android:paddingBottom="5dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:paddingTop="5dp"
-            android:text="授权"
+            android:text="@string/btn_permission"
             android:textColor="#ffffff"
             android:textSize="18sp" />
 
