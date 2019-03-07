@@ -1,7 +1,6 @@
 package cn.kk20.floatlog.core;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.widget.TextView;
 
 import com.zhy.adapter.recyclerview.CommonAdapter;
@@ -23,6 +22,9 @@ import cn.kk20.floatlog.bean.LogItemBean;
 public class LogListAdapter extends CommonAdapter<LogItemBean> {
     private SimpleDateFormat simpleDateFormat;
 
+    private static final int[] colors = {R.color.colorLogVerbose,R.color.colorLogDebug,
+            R.color.colorLogInfo,R.color.colorLogWarn,R.color.colorLogError};
+
     public LogListAdapter(Context context, List<LogItemBean> datas) {
         super(context, R.layout.item_log_detail, datas);
 
@@ -34,29 +36,11 @@ public class LogListAdapter extends CommonAdapter<LogItemBean> {
         TextView tvTag = viewHolder.getView(R.id.tv_tag);
         TextView tvLog = viewHolder.getView(R.id.tv_log);
         int type = bean.getLogLevel();
-        switch (type) {
-            case LogItemBean.VERBOSE:
-                tvLog.setTextColor(Color.WHITE);
-                break;
-            case LogItemBean.DEBUG:
-                tvLog.setTextColor(Color.parseColor("#20B2AA"));
-                break;
-            case LogItemBean.INFO:
-                tvLog.setTextColor(Color.GREEN);
-                break;
-            case LogItemBean.WARN:
-                tvLog.setTextColor(Color.parseColor("#EE7600"));
-                break;
-            case LogItemBean.ERROR:
-                tvLog.setTextColor(Color.RED);
-                break;
-            default:
-                break;
-        }
-
         String time = simpleDateFormat.format(bean.getDate());
         String text = String.format(Locale.CHINA, "[%s %s/%s]:", time, bean.getLogLevelStr(),
                 bean.getLogTag());
+        tvTag.setTextColor(mContext.getResources().getColor(colors[type]));
+        tvLog.setTextColor(mContext.getResources().getColor(colors[type]));
         tvTag.setText(text);
         tvLog.setText(bean.getLogText());
     }

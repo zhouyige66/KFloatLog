@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorLogVerbose">#FFFFFF</color>
+    <color name="colorLogDebug">#20B2AA</color>
+    <color name="colorLogInfo">#00EE00</color>
+    <color name="colorLogWarn">#EE7600</color>
+    <color name="colorLogError">#EE0000</color>
+</resources>

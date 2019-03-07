@@ -3,21 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingTop="3dp"
+    android:paddingBottom="3dp">
 
     <TextView
         android:id="@+id/tv_tag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#6C7B8B"
-        android:textSize="18sp"
+        android:textSize="16sp"
         tools:text="日期 标签" />
 
     <TextView
         android:id="@+id/tv_log"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#20B2AA"
-        android:textSize="16sp"
+        android:textSize="14sp"
         tools:text="日志信息" />
 </LinearLayout>
