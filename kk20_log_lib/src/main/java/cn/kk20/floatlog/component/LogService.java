@@ -46,7 +46,6 @@ public class LogService extends Service {
         // 注册广播
         IntentFilter mHomeFilter = new IntentFilter(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
         registerReceiver(mHomeListenerReceiver, mHomeFilter);
-
     }
 
     @Override
