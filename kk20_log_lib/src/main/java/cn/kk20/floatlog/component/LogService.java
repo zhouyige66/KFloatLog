@@ -1,4 +1,4 @@
-package cn.kk20.floatlog;
+package cn.kk20.floatlog.component;
 
 import android.app.Service;
 import android.content.BroadcastReceiver;
@@ -10,6 +10,11 @@ import android.os.PowerManager;
 import android.support.v4.util.ArrayMap;
 import android.text.TextUtils;
 import android.util.Log;
+
+import cn.kk20.floatlog.core.AbsFloatView;
+import cn.kk20.floatlog.core.FloatLogView;
+import cn.kk20.floatlog.core.FloatWindowManager;
+import cn.kk20.floatlog.bean.LogItemBean;
 
 /**
  * @Description 悬浮显示日志后台服务
@@ -33,7 +38,7 @@ public class LogService extends Service {
         if (wakeLock == null) {
             PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
             wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK
-                    | PowerManager.ON_AFTER_RELEASE, "WakeLock");
+                    | PowerManager.ON_AFTER_RELEASE, "FloatLog:WakeLock");
             if (wakeLock != null) {
                 wakeLock.acquire();
             }

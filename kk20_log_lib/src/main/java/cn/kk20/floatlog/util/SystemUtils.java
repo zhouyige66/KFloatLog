@@ -1,4 +1,4 @@
-package cn.kk20.floatlog;
+package cn.kk20.floatlog.util;
 
 import android.app.ActivityManager;
 import android.app.AppOpsManager;

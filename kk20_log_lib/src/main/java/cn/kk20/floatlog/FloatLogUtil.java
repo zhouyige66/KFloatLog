@@ -3,6 +3,11 @@ package cn.kk20.floatlog;
 import android.content.Context;
 import android.content.Intent;
 
+import cn.kk20.floatlog.bean.LogItemBean;
+import cn.kk20.floatlog.component.AlertWindowPermissionGrantActivity;
+import cn.kk20.floatlog.component.LogService;
+import cn.kk20.floatlog.util.AppOpsManagerUtil;
+
 /**
  * @Description 悬浮日志工具
  * @Author kk20
@@ -10,32 +15,25 @@ import android.content.Intent;
  * @Version V1.0.0
  */
 public class FloatLogUtil {
-    private static FloatLogUtil instance;
-    private static Context APP_CONTEXT;
+    private static Context APP_CONTEXT = null;
 
     private FloatLogUtil() {
 
     }
 
-    public static FloatLogUtil getInstance() {
-        if (instance == null) {
-            synchronized (FloatLogUtil.class) {
-                if (instance == null) {
-                    instance = new FloatLogUtil();
-                }
-            }
-        }
-        return instance;
-    }
-
     private static void addLog(int level, String tag, String msg) {
         Context context = getAppContext();
+        if (context == null) {
+            throw new RuntimeException("FloatLogUtil中APP_CONTEXT未初始化，请先调用bind(Context context)！");
+        }
+
         if (!AppOpsManagerUtil.checkDrawOverlays(context)) {
             Intent i = new Intent(context, AlertWindowPermissionGrantActivity.class);
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             getAppContext().startActivity(i);
             return;
         }
+
         LogItemBean bean = new LogItemBean(level, tag, msg);
         Intent intent = new Intent(context, LogService.class);
         intent.putExtra("data", bean);

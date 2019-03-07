@@ -20,19 +20,20 @@ dependencies {
 #### 使用前配置
 ##### 需要的权限
 ```xml
-<uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<!--悬浮窗口权限-->
+<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+<!--锁屏后台运行-->
+<uses-permission android:name="android.permission.WAKE_LOCK" />
 ```
 ##### 初始化
 ```java
-// 在application的onCreate中初始化
-@Override
-public void onCreate() {
-    super.onCreate();
-    FloatUtil.init(this);
-    FloatUtil.setDebug(BuildConfig.DEBUG); // 是否显示悬浮窗日志.
-    ...
-}
+// 使用以下方法输入日志到悬浮窗显示，使用以下任意方法前，请先使用FloatLogUtil.bind(Context context)关联context，建议在Application的onCreate()方法中调用一次即可。
+FloatLogUtil.v(String tag,String msg)
+FloatLogUtil.d(String tag,String msg)
+FloatLogUtil.i(String tag,String msg)
+FloatLogUtil.w(String tag,String msg)
+FloatLogUtil.e(String tag,String msg)
+
 ```
 
 ----

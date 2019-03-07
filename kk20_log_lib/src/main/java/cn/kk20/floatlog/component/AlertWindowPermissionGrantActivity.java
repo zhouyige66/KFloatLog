@@ -1,4 +1,4 @@
-package cn.kk20.floatlog;
+package cn.kk20.floatlog.component;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -23,6 +23,9 @@ import android.widget.Button;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+
+import cn.kk20.floatlog.util.AppOpsManagerUtil;
+import cn.kk20.floatlog.R;
 
 /** 
  * @Description 悬浮窗权限请求授权页面

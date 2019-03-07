@@ -1,4 +1,4 @@
-package cn.kk20.floatlog;
+package cn.kk20.floatlog.core;
 
 import android.content.Context;
 import android.support.v4.util.ArrayMap;
@@ -18,6 +18,10 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+
+import cn.kk20.floatlog.R;
+import cn.kk20.floatlog.bean.LogItemBean;
+import cn.kk20.floatlog.bean.TagBean;
 
 /**
  * @Description 悬浮日志视图
@@ -338,12 +342,6 @@ public class FloatLogView extends AbsFloatView implements View.OnClickListener {
                 adapter.notifyDataSetChanged();
             }
         }
-    }
-
-    private static class TagBean {
-        public int index;
-        public String tagName;
-        public List<LogItemBean> logItemBeanList;
     }
 
 }

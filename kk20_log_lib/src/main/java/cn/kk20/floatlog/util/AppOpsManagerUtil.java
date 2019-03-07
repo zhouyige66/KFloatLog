@@ -1,4 +1,4 @@
-package cn.kk20.floatlog;
+package cn.kk20.floatlog.util;
 
 import android.Manifest;
 import android.annotation.TargetApi;
@@ -11,7 +11,7 @@ import android.support.v4.content.PermissionChecker;
 
 /**
  * @Description 权限检查工具
- * @Author zzy@sxw.cn
+ * @Author kk20
  * @Date 2018/1/18
  * @Version V1.0.0
  */

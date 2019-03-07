@@ -1,4 +1,4 @@
-package cn.kk20.floatlog;
+package cn.kk20.floatlog.bean;
 
 import android.os.Parcel;
 import android.os.Parcelable;

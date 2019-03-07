@@ -1,4 +1,4 @@
-package cn.kk20.floatlog;
+package cn.kk20.floatlog.core;
 
 import android.content.Context;
 import android.graphics.PixelFormat;

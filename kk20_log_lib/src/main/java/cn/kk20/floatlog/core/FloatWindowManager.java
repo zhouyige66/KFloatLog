@@ -1,11 +1,13 @@
-package cn.kk20.floatlog;
+package cn.kk20.floatlog.core;
 
 import android.content.Context;
 import android.view.WindowManager;
 
+import cn.kk20.floatlog.core.AbsFloatView;
+
 /**
  * @Description 悬浮window管理者
- * @Author zzy@sxw.cn
+ * @Author kk20
  * @Date 2018/1/18
  * @Version V1.0.0
  */

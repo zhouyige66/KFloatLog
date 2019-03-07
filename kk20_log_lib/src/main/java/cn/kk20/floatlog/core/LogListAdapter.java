@@ -1,4 +1,4 @@
-package cn.kk20.floatlog;
+package cn.kk20.floatlog.core;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -10,6 +10,9 @@ import com.zhy.adapter.recyclerview.base.ViewHolder;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Locale;
+
+import cn.kk20.floatlog.R;
+import cn.kk20.floatlog.bean.LogItemBean;
 
 /**
  * @Description 日志适配器
