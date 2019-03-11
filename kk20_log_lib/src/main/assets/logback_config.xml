@@ -1,0 +1,56 @@
+<!--<configuration>-->
+    <!--<property name="LOG_DIR" value="/data/data/com.example/files" />-->
+
+    <!--&lt;!&ndash; Create a logcat appender &ndash;&gt;-->
+    <!--<appender name="logcat" class="ch.qos.logback.classic.android.LogcatAppender">-->
+        <!--<encoder>-->
+            <!--<pattern>%msg</pattern>-->
+        <!--</encoder>-->
+    <!--</appender>-->
+
+    <!--&lt;!&ndash; Create a file appender for TRACE-level messages &ndash;&gt;-->
+    <!--<appender name="TraceLog" class="ch.qos.logback.core.FileAppender">-->
+        <!--<filter class="ch.qos.logback.classic.filter.LevelFilter">-->
+            <!--<level>TRACE</level>-->
+            <!--<onMatch>ACCEPT</onMatch>-->
+            <!--<onMismatch>DENY</onMismatch>-->
+        <!--</filter>-->
+
+        <!--<file>${LOG_DIR}/trace.log</file>-->
+
+        <!--<encoder>-->
+            <!--<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>-->
+        <!--</encoder>-->
+    <!--</appender>-->
+
+    <!--&lt;!&ndash; Create a file appender for DEBUG-level messages &ndash;&gt;-->
+    <!--<appender name="DebugLog" class="ch.qos.logback.core.FileAppender">-->
+        <!--<filter class="ch.qos.logback.classic.filter.LevelFilter">-->
+            <!--<level>DEBUG</level>-->
+            <!--<onMatch>ACCEPT</onMatch>-->
+            <!--<onMismatch>DENY</onMismatch>-->
+        <!--</filter>-->
+
+        <!--<file>${LOG_DIR}/debug.log</file>-->
+
+        <!--<encoder>-->
+            <!--<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>-->
+        <!--</encoder>-->
+    <!--</appender>-->
+
+    <!--&lt;!&ndash; Write TRACE messages from class A to its own log &ndash;&gt;-->
+    <!--<logger name="com.example.A" level="TRACE">-->
+        <!--<appender-ref ref="TraceLog" />-->
+    <!--</logger>-->
+
+    <!--&lt;!&ndash; Write DEBUG messages from class B to its own log &ndash;&gt;-->
+    <!--<logger name="com.example.B" level="DEBUG">-->
+        <!--<appender-ref ref="DebugLog" />-->
+    <!--</logger>-->
+
+    <!--&lt;!&ndash; Write INFO (and higher-level) messages to logcat &ndash;&gt;-->
+    <!--<root level="INFO">-->
+        <!--<appender-ref ref="logcat" />-->
+    <!--</root>-->
+    <!---->
+<!--</configuration>-->

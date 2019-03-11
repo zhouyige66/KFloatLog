@@ -24,7 +24,7 @@ import java.util.List;
  * @Date 2018/3/15
  * @Version V1.0.0
  */
-public class SystemUtils {
+public class SystemUtil {
 
     /**
      * 检测用户是否对本app开启了“Apps with usage access”权限

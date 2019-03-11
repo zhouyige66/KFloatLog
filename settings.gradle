@@ -1,1 +1,1 @@
-include ':kk20_log_lib'
+include ':kk20_log_lib', ':demo'
