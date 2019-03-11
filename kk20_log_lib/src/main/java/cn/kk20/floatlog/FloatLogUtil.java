@@ -10,13 +10,13 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.concurrent.ConcurrentHashMap;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.classic.android.LogcatAppender;
 import ch.qos.logback.classic.encoder.PatternLayoutEncoder;
 import ch.qos.logback.classic.spi.ILoggingEvent;
-import ch.qos.logback.core.FileAppender;
 import ch.qos.logback.core.rolling.RollingFileAppender;
 import ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy;
 import ch.qos.logback.core.util.FileSize;
@@ -33,10 +33,10 @@ import cn.kk20.floatlog.util.AppOpsManagerUtil;
  * @Version V1.0.0
  */
 public class FloatLogUtil {
-    private static Context APP_CONTEXT = null;
-    private static Logger logger = null;
-
     private static String testStr = "密密麻麻付木多军发军发；丽枫酒店司法鉴定；房间阿萨德；房间爱上对方；爱豆世纪发到手机发的；防静电司法鉴定所；发动机司法鉴定所发链接第三方；爱豆世纪发的老师；富家大室；富家大室；房间奥德赛；了房间奥德赛；房间奥德赛了房间奥德赛了；房间爱上对方就达萨罗；富家大室了；房间奥德赛；了房间奥德赛房间奥德赛；了房间奥德赛了；福建省地方接收到房间奥德赛；房间奥德赛；房间奥德赛；了房间阿萨德了；房间爱上对方就达萨罗发；嘉德罗斯；防静电司法鉴定所了；缴费；爱神的箭分散；大姐夫；ADSL房间；大师傅";
+    private static Context appContext = null;
+    private static ConcurrentHashMap<String, Logger> loggerMap = new ConcurrentHashMap<>();
+    private static boolean syncSaveLog = true;
 
     private FloatLogUtil() {
 
@@ -56,11 +56,6 @@ public class FloatLogUtil {
         // 日志文件夹
         String logFilePath = AppFileUtil.getDirPath(context, "log");
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.CHINESE);
-//        FileAppender<ILoggingEvent> fileAppender = new FileAppender<ILoggingEvent>();
-//        fileAppender.setContext(lc);
-//        fileAppender.setFile(logFilePath + format.format(new Date()) + File.separator + "log.log");
-//        fileAppender.setEncoder(encoder1);
-//        fileAppender.start();
         // 循环存储
         RollingFileAppender<ILoggingEvent> fileAppender = new RollingFileAppender<>();
         fileAppender.setContext(lc);
@@ -68,12 +63,7 @@ public class FloatLogUtil {
         fileAppender.setFile(logFilePath + format.format(new Date()) + File.separator + "log.log");
         fileAppender.setPrudent(true);
         fileAppender.setAppend(true);
-
-//        SizeBasedTriggeringPolicy<ILoggingEvent> triggeringPolicy =
-//                new SizeBasedTriggeringPolicy<>();
-//        triggeringPolicy.setContext(lc);
-//        triggeringPolicy.setMaxFileSize(FileSize.valueOf("2kb"));
-//        triggeringPolicy.start();
+        // 日志保存策略配置
         SizeAndTimeBasedRollingPolicy<ILoggingEvent> rollingPolicy =
                 new SizeAndTimeBasedRollingPolicy<>();
         rollingPolicy.setContext(lc);
@@ -108,60 +98,69 @@ public class FloatLogUtil {
     }
 
     private static void addLog(int level, String tag, String msg) {
-        if (logger == null) {
-            logger = LoggerFactory.getLogger("log");
-        }
-        logger.debug(testStr);
-        // 存储日志到本地
-        switch (level) {
-            case LogItemBean.DEBUG:
-                logger.debug(msg);
-                break;
-            case LogItemBean.INFO:
-                logger.info(msg);
-                break;
-            case LogItemBean.WARN:
-                logger.warn(msg);
-                break;
-            case LogItemBean.ERROR:
-                logger.error(msg);
-                break;
-            default:
-                logger.trace(msg);
-                break;
+        if (syncSaveLog) {
+            Logger logger = loggerMap.get(tag);
+            if (logger == null) {
+                logger = LoggerFactory.getLogger(tag);
+                loggerMap.put(tag, logger);
+            }
+            logger.debug(testStr);
+            // 存储日志到本地
+            switch (level) {
+                case LogItemBean.DEBUG:
+                    logger.debug(msg);
+                    break;
+                case LogItemBean.INFO:
+                    logger.info(msg);
+                    break;
+                case LogItemBean.WARN:
+                    logger.warn(msg);
+                    break;
+                case LogItemBean.ERROR:
+                    logger.error(msg);
+                    break;
+                default:
+                    logger.trace(msg);
+                    break;
+            }
         }
 
-        Context context = getAppContext();
-        if (context == null) {
+        if (appContext == null) {
             throw new RuntimeException("FloatLogUtil中APP_CONTEXT未初始化，请先调用bind(Context context)！");
         }
 
-        if (!AppOpsManagerUtil.checkDrawOverlays(context)) {
-            Intent i = new Intent(context, AlertWindowPermissionGrantActivity.class);
+        if (!AppOpsManagerUtil.checkDrawOverlays(appContext)) {
+            Intent i = new Intent(appContext, AlertWindowPermissionGrantActivity.class);
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            getAppContext().startActivity(i);
+            appContext.startActivity(i);
             return;
         }
 
         LogItemBean bean = new LogItemBean(level, tag, msg);
-        Intent intent = new Intent(context, LogService.class);
+        Intent intent = new Intent(appContext, LogService.class);
         intent.putExtra("data", bean);
-        context.startService(intent);
-    }
-
-    public static void bind(Context context) {
-        APP_CONTEXT = context.getApplicationContext();
-        configLogback(context);
+        appContext.startService(intent);
     }
 
     public static Context getAppContext() {
-        return APP_CONTEXT;
+        return appContext;
     }
 
-    public static void clean() {
-        Context context = getAppContext();
-        Intent intent = new Intent(context, LogService.class);
-        context.stopService(intent);
+    public static void bind(Context context) {
+        appContext = context.getApplicationContext();
+        configLogback(context);
+    }
+
+    public static void close() {
+        if (appContext == null) {
+            return;
+        }
+        Intent intent = new Intent(appContext, LogService.class);
+        appContext.stopService(intent);
+    }
+
+    public static void setSyncSaveLog(boolean sync) {
+        syncSaveLog = sync;
     }
 
     public static void v(String tag, String msg) {

@@ -4,7 +4,7 @@
 ### 其他特性
 * 添加悬浮窗授权请求页面。
 * 应用外悬浮视图的包装与使用。
-* 后期会增加Log4j选项，供开发者自定义是否将日志存储到本地。
+* 后期会增加Logback选项，供开发者自定义是否将日志存储到本地。
 
 ### 使用
 #### Gradle配置:
@@ -14,7 +14,7 @@ repositories {
 	maven { url 'https://jitpack.io' }
 }
 dependencies {
-	implementation 'com.github.zhouyige66:KFloatLog:1.0.3'
+	implementation 'com.github.zhouyige66:KFloatLog:1.0.4'
 }
 ```
 
@@ -22,11 +22,16 @@ dependencies {
 * 使用FloatLogUtil.bind(Context context)先关联context，建议在Application的onCreate()方法中调用一次即可。
 * 使用以下方法输入日志到悬浮窗显示。
 ```java
+// 配置是否自动保存日志到文件，默认是true
+FloatLogUtil.setSyncSaveLog(boolean sync)
+// 添加日志
 FloatLogUtil.v(String tag,String msg)
 FloatLogUtil.d(String tag,String msg)
 FloatLogUtil.i(String tag,String msg)
 FloatLogUtil.w(String tag,String msg)
 FloatLogUtil.e(String tag,String msg)
+// 关闭悬浮窗
+FloatLogUtil.close();
 ```
 
 ----
