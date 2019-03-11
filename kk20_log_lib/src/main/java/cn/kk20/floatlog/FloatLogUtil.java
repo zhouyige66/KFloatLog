@@ -33,7 +33,6 @@ import cn.kk20.floatlog.util.AppOpsManagerUtil;
  * @Version V1.0.0
  */
 public class FloatLogUtil {
-    private static String testStr = "密密麻麻付木多军发军发；丽枫酒店司法鉴定；房间阿萨德；房间爱上对方；爱豆世纪发到手机发的；防静电司法鉴定所；发动机司法鉴定所发链接第三方；爱豆世纪发的老师；富家大室；富家大室；房间奥德赛；了房间奥德赛；房间奥德赛了房间奥德赛了；房间爱上对方就达萨罗；富家大室了；房间奥德赛；了房间奥德赛房间奥德赛；了房间奥德赛了；福建省地方接收到房间奥德赛；房间奥德赛；房间奥德赛；了房间阿萨德了；房间爱上对方就达萨罗发；嘉德罗斯；防静电司法鉴定所了；缴费；爱神的箭分散；大姐夫；ADSL房间；大师傅";
     private static Context appContext = null;
     private static ConcurrentHashMap<String, Logger> loggerMap = new ConcurrentHashMap<>();
     private static boolean syncSaveLog = true;
@@ -61,7 +60,7 @@ public class FloatLogUtil {
         fileAppender.setContext(lc);
         fileAppender.setName("RollingFileAppender");
         fileAppender.setFile(logFilePath + format.format(new Date()) + File.separator + "log.log");
-        fileAppender.setPrudent(true);
+        fileAppender.setPrudent(false);
         fileAppender.setAppend(true);
         // 日志保存策略配置
         SizeAndTimeBasedRollingPolicy<ILoggingEvent> rollingPolicy =
@@ -104,7 +103,6 @@ public class FloatLogUtil {
                 logger = LoggerFactory.getLogger(tag);
                 loggerMap.put(tag, logger);
             }
-            logger.debug(testStr);
             // 存储日志到本地
             switch (level) {
                 case LogItemBean.DEBUG:
@@ -126,7 +124,7 @@ public class FloatLogUtil {
         }
 
         if (appContext == null) {
-            throw new RuntimeException("FloatLogUtil中APP_CONTEXT未初始化，请先调用bind(Context context)！");
+            throw new RuntimeException("FloatLogUtil未绑定Context，请先调用bind(Context context)！");
         }
 
         if (!AppOpsManagerUtil.checkDrawOverlays(appContext)) {
