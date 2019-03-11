@@ -157,6 +157,10 @@ public class FloatLogUtil {
         appContext.stopService(intent);
     }
 
+    public static boolean isSyncSaveLog() {
+        return syncSaveLog;
+    }
+
     public static void setSyncSaveLog(boolean sync) {
         syncSaveLog = sync;
     }
