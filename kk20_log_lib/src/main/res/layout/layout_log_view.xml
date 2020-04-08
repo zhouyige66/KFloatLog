@@ -1,123 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#80000000"
-    android:orientation="vertical">
+    android:background="#80000000">
 
     <LinearLayout
-        android:id="@+id/v_control"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp">
-
-        <ImageView
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:src="@drawable/ic_log_logo" />
-
-        <TextView
-            android:id="@+id/tv_level"
-            android:layout_width="100dp"
-            android:layout_height="32dp"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/bg_rectangle_t_5dp"
-            android:drawablePadding="5dp"
-            android:drawableRight="@drawable/ic_log_spinner_dropdown"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:singleLine="true"
-            android:textColor="#fff"
-            tools:text="Verbose" />
-
-        <TextView
-            android:id="@+id/tv_tag"
-            android:layout_width="wrap_content"
-            android:layout_height="32dp"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/bg_rectangle_t_5dp"
-            android:drawablePadding="5dp"
-            android:drawableRight="@drawable/ic_log_spinner_dropdown"
-            android:gravity="center_vertical"
-            android:maxWidth="100dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:singleLine="true"
-            android:textColor="#fff"
-            tools:text="标签" />
-
-        <EditText
-            android:id="@+id/et_filter"
-            android:layout_width="0dp"
-            android:layout_height="32dp"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/bg_rectangle_t_50dp"
-            android:hint="输入过滤条件"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:textColor="#ffffff"
-            android:textColorHint="#bbbbbb"
-            android:visibility="invisible" />
-
-        <ImageView
-            android:id="@+id/iv_clean"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/selector_rectangle_t_0dp"
-            android:src="@drawable/ic_log_clean" />
-
-        <ImageView
-            android:id="@+id/iv_expand"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/selector_rectangle_t_0dp"
-            android:src="@drawable/ic_log_shrink" />
-
-
-        <ImageView
-            android:id="@+id/iv_close"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/selector_rectangle_t_0dp"
-            android:src="@drawable/ic_log_close" />
-    </LinearLayout>
-
-    <FrameLayout
-        android:id="@+id/v_data"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="10dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp">
+        android:orientation="vertical">
 
-        <android.support.v7.widget.RecyclerView
+        <LinearLayout
+            android:id="@+id/v_control"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_log_logo" />
+
+            <TextView
+                android:id="@+id/tv_level"
+                android:layout_width="95dp"
+                android:layout_height="32dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/bg_rectangle_t_5dp"
+                android:drawableRight="@drawable/ic_log_spinner_dropdown"
+                android:drawablePadding="5dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:singleLine="true"
+                android:textColor="#fff"
+                tools:text="Verbose" />
+
+            <TextView
+                android:id="@+id/tv_tag"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/bg_rectangle_t_5dp"
+                android:drawableRight="@drawable/ic_log_spinner_dropdown"
+                android:drawablePadding="5dp"
+                android:gravity="center_vertical"
+                android:maxWidth="100dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:singleLine="true"
+                android:textColor="#fff"
+                tools:text="标签" />
+
+            <EditText
+                android:id="@+id/et_filter"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_rectangle_t_50dp"
+                android:hint="输入过滤条件"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textColor="#ffffff"
+                android:textColorHint="#bbbbbb"
+                android:visibility="invisible" />
+
+            <ImageView
+                android:id="@+id/iv_clean"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/selector_rectangle_t_0dp"
+                android:src="@drawable/ic_log_clean" />
+
+            <ImageView
+                android:id="@+id/iv_expand"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/selector_rectangle_t_0dp"
+                android:src="@drawable/ic_log_shrink" />
+
+
+            <ImageView
+                android:id="@+id/iv_close"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/selector_rectangle_t_0dp"
+                android:src="@drawable/ic_log_close" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/v_choose"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#70ffffff"
+        android:clickable="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <LinearLayout
-            android:id="@+id/v_choose"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#a0000000"
-            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_rectangle_424242_5dp"
             android:orientation="vertical"
-            android:visibility="gone">
+            android:padding="5dp">
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/cb_select_all"
+                style="@style/Style_CheckBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/colorLogDebug"
+                android:checked="true"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="全选"
+                android:textColor="@color/colorLogDebug"
+                android:textSize="18sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView_choose"
                 android:layout_width="200dp"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_rectangle_t_5dp" />
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_confirm"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_rectangle_ffffff_5dp"
+                    android:text="确定" />
+
+                <Button
+                    android:id="@+id/btn_cancel"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_rectangle_ffffff_5dp"
+                    android:text="取消" />
+            </LinearLayout>
         </LinearLayout>
-    </FrameLayout>
-</LinearLayout>
+    </LinearLayout>
+</FrameLayout>

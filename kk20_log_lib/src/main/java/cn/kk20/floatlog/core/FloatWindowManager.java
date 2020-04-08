@@ -3,15 +3,12 @@ package cn.kk20.floatlog.core;
 import android.content.Context;
 import android.view.WindowManager;
 
-import cn.kk20.floatlog.core.AbsFloatView;
-
 /**
  * @Description 悬浮window管理者
  * @Author kk20
  * @Date 2018/1/18
  * @Version V1.0.0
  */
-
 public class FloatWindowManager {
     // 用于控制在屏幕上添加或移除悬浮窗
     private static WindowManager mWindowManager;

@@ -2,18 +2,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@drawable/selector_lv_item_level_and_tag">
 
-    <TextView
-        android:id="@+id/tv_level"
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/cb_level"
+        style="@style/Style_CheckBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:paddingBottom="5dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
+        android:buttonTint="@color/colorLogDebug"
+        android:checked="true"
         android:paddingTop="5dp"
-        android:textColor="#ffffff"
+        android:paddingBottom="5dp"
+        android:textColor="@color/colorLogDebug"
         android:textSize="18sp"
-        tools:text="标签" />
+        tools:text="你好" />
+
 </LinearLayout>

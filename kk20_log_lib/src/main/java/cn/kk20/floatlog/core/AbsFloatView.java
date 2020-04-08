@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.PixelFormat;
 import android.graphics.Point;
 import android.os.Build;
-import android.support.annotation.LayoutRes;
 import android.util.DisplayMetrics;
 import android.view.GestureDetector;
 import android.view.Gravity;
@@ -13,6 +12,8 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+
+import androidx.annotation.LayoutRes;
 
 /**
  * @Description 悬浮窗视图基类

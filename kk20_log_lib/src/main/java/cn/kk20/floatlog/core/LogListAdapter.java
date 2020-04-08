@@ -3,8 +3,8 @@ package cn.kk20.floatlog.core;
 import android.content.Context;
 import android.widget.TextView;
 
-import com.zhy.adapter.recyclerview.CommonAdapter;
-import com.zhy.adapter.recyclerview.base.ViewHolder;
+import cn.kk20.floatlog.adapter.CommonAdapter;
+import cn.kk20.floatlog.adapter.base.ViewHolder;
 
 import java.text.SimpleDateFormat;
 import java.util.List;

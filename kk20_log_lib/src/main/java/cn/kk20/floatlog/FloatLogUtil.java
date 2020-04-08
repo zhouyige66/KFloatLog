@@ -34,6 +34,7 @@ import cn.kk20.floatlog.util.AppOpsManagerUtil;
  */
 public class FloatLogUtil {
     private static Context appContext = null;
+    private static int maxLogItemCount = 1024;
     private static ConcurrentHashMap<String, Logger> loggerMap = new ConcurrentHashMap<>();
     private static boolean syncSaveLog = true;
 
@@ -144,8 +145,13 @@ public class FloatLogUtil {
         return appContext;
     }
 
-    public static void bind(Context context) {
+    public static int getMaxLogItemCount() {
+        return maxLogItemCount;
+    }
+
+    public static void bind(Context context, int count) {
         appContext = context.getApplicationContext();
+        maxLogItemCount = count;
         configLogback(context);
     }
 

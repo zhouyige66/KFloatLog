@@ -11,7 +11,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.annotation.Nullable;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.KeyCharacterMap;
@@ -20,6 +19,8 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.WindowManager;
 import android.widget.Button;
+
+import androidx.annotation.Nullable;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -33,7 +34,7 @@ import cn.kk20.floatlog.R;
  * @Date 2018/5/1
  * @Version V1.0.0
  */
-public class AlertWindowPermissionGrantActivity extends Activity {
+public class  AlertWindowPermissionGrantActivity extends Activity {
     private static final int OVERLAYS_CODE = 10001;
 
     private View viewGrant;

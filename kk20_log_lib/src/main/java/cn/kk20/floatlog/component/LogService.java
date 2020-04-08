@@ -7,14 +7,14 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.IBinder;
 import android.os.PowerManager;
-import android.support.v4.util.ArrayMap;
 import android.text.TextUtils;
+import android.util.ArrayMap;
 import android.util.Log;
 
+import cn.kk20.floatlog.bean.LogItemBean;
 import cn.kk20.floatlog.core.AbsFloatView;
 import cn.kk20.floatlog.core.FloatLogView;
 import cn.kk20.floatlog.core.FloatWindowManager;
-import cn.kk20.floatlog.bean.LogItemBean;
 
 /**
  * @Description 悬浮显示日志后台服务

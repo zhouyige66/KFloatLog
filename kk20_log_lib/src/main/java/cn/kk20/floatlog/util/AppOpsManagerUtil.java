@@ -6,8 +6,9 @@ import android.app.AppOpsManager;
 import android.content.Context;
 import android.os.Build;
 import android.provider.Settings;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.PermissionChecker;
+
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.PermissionChecker;
 
 /**
  * @Description 权限检查工具
@@ -15,7 +16,6 @@ import android.support.v4.content.PermissionChecker;
  * @Date 2018/1/18
  * @Version V1.0.0
  */
-
 public class AppOpsManagerUtil {
 
     @TargetApi(19)
