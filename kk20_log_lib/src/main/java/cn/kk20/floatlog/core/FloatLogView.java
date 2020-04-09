@@ -327,6 +327,13 @@ public class FloatLogView extends AbsFloatView implements View.OnClickListener {
             } else {
                 selectLevels.clear();
                 selectLevels.addAll(list);
+                if (list.size() == levels.size()) {
+                    tv_level.setText("All");
+                } else if (list.size() > 1) {
+                    tv_level.setText(levels.get(list.get(0)).getItemText() + "...");
+                } else {
+                    tv_level.setText(levels.get(list.get(0)).getItemText());
+                }
                 // 显示选中等级下的tag
                 showTagChoose(true);
             }
@@ -347,6 +354,14 @@ public class FloatLogView extends AbsFloatView implements View.OnClickListener {
                 logItemBeanList.addAll(
                         DataContainer.getInstance().getLogList(selectLevels, selectTags));
                 logListAdapter.notifyDataSetChanged();
+
+                if (list.size() == tags.size() || list.isEmpty()) {
+                    tv_tag.setText("All");
+                } else if (list.size() > 1) {
+                    tv_tag.setText(list.get(0) + "...");
+                } else {
+                    tv_tag.setText(list.get(0));
+                }
             }
         }
     }
