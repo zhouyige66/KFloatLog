@@ -5,6 +5,7 @@
 * 添加悬浮窗授权请求页面。
 * 应用外悬浮视图的包装与使用。
 * 后期会增加Logback选项，供开发者自定义是否将日志存储到本地。
+* 2020-04-09，已经集成Logback用作日志文件存储
 
 ### 使用
 #### Gradle配置:
@@ -14,7 +15,7 @@ repositories {
 	maven { url 'https://jitpack.io' }
 }
 dependencies {
-	implementation 'com.github.zhouyige66:KFloatLog:1.0.4'
+	implementation 'com.github.zhouyige66:KFloatLog:1.0.5'
 }
 ```
 
@@ -24,14 +25,18 @@ dependencies {
 ```java
 // 配置是否自动保存日志到文件，默认是true
 FloatLogUtil.setSyncSaveLog(boolean sync)
+// 配置是否显示日志悬浮窗口，默认是true
+FloatLogUtil.setShowFloatView(boolean showFloatView)
+// 配置悬浮窗口最大日志条数，默认是1024
+FloatLogUtil.setMaxLogItemCount(int maxLogItemCount)
+// 关闭悬浮窗
+FloatLogUtil.closeFloatView();
 // 添加日志
 FloatLogUtil.v(String tag,String msg)
 FloatLogUtil.d(String tag,String msg)
 FloatLogUtil.i(String tag,String msg)
 FloatLogUtil.w(String tag,String msg)
 FloatLogUtil.e(String tag,String msg)
-// 关闭悬浮窗
-FloatLogUtil.close();
 ```
 
 ----
